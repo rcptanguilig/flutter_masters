@@ -8,7 +8,6 @@ import 'pages/flow_page.dart';
 import 'pages/wrap_page.dart';
 import 'pages/listview_page.dart';
 import 'helper.dart';
-import 'dart:math' as math;
 
 import 'pages/second_page.dart';
 
@@ -16,15 +15,6 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   Helper helper;
-  // This widget is the root of your application.
-
-  Color generateRandomColor() {
-    Helper.generateRandomColor();
-    return Color(
-        (math.Random().nextDouble() * 0xFFFFFF).toInt() <<
-            0)
-        .withOpacity(0.8);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +54,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _testResult;
   final List<String> _helloList = ["Hello!","Përshëndetje!","أهلا!","Բարև՜։","Zdravo!","Hola!","你好！","Zdravo!","Ahoj!","Goddag!","Hallo!","Tere!","Hei!","Salut!","გამარჯობა!","Hallo!","Γειάσου!","नमस्ते!","Helló!","Halló!","Halo!","Ciao!","こんにちは！","សួរស្តី","여보세요!","Sveiki!","Здраво!","Hei","سلام!","Cześć!","Olá!","Bună!","Привет!","Здраво!","Ahoj!","Zdravo!","¡Hola!","Hallå!","สวัสดี","Merhaba!","Привіт!","chào"];
   Color _background = Colors.white70;
 

@@ -55,30 +55,27 @@ class _WrapPageState extends State<WrapPage> {
             children: <Widget>[
               TextField(
                 decoration: InputDecoration(
+                  border: OutlineInputBorder(),
                   hintText: 'enter text here, then hit enter',
                 ),
                 textAlign: TextAlign.center,
                 controller: _inputTextController,
+
                 onSubmitted: (String value) {
                   setState(
                     () {
-//                      _entryString = value;
                       _textList.add(value);
+                      _inputTextController.text = "";
                     },
                   );
                 },
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 20.0),
               Container(
                 child: _textList == null ? Text("Enter a text") : Wrap(
                   children: _textBoxesBuilder(),
                 ),
               ),
-              SizedBox(height: 40.0),
-//              RaisedButton(
-//                child: Text("Add and Return to Home"),
-//                onPressed: () => Navigator.pop(context),
-//              ),
             ],
           ),
         ),
