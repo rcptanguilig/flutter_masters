@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         '/rowcolumn': (BuildContext context) => RowAndColumnPage(),
         '/stack': (BuildContext context) => SecondPage(),
         '/istack': (BuildContext context) => SecondPage(),
-        '/grid': (BuildContext context) => SecondPage(),
+        '/grid': (BuildContext context) => GridViewPage(),
         '/table': (BuildContext context) => SecondPage(),
         '/flow': (BuildContext context) => SecondPage(),
         '/wrap': (BuildContext context) => WrapPage(),
@@ -103,7 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: Text("Grid"),
               onTap: () {
-                Navigator.pushNamed(context, "/second", arguments: _helloList);
+                Navigator.pushNamed(context, "/grid", arguments: _helloList);
               },
             ),
             Divider(),
