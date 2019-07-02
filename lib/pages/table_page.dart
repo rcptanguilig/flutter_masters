@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_masters/helper.dart';
 
 class TablePage extends StatelessWidget {
-  Map<String, String> _helloTable = {
+  final Map<String, String> _helloTable = {
     "Albanian": "Përshëndetje!",
     "Arabic": "أهلا!",
     "Armenian": "Բարև՜։",
@@ -45,26 +45,73 @@ class TablePage extends StatelessWidget {
     "Ukrainian": "Привіт!"
   };
 
-  TableRow _buildRow(String a, String b) {
-    return TableRow(children: [
-      Container(
-        margin: EdgeInsets.all(10.0),
-        child: Text("\u{1F1E6}\u{1F1FF}"),
-        height: 100.0,
-        color: Helper.generateRandomColor(),
+  Widget _buildTextBox(String text) {
+    return Center(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 16.0,
+        ),
       ),
-      Container(
-        margin: EdgeInsets.all(10.0),
-        child: Text("Element 2"),
-        height: 150.0,
-        color: Helper.generateRandomColor(),
-      ),
-    ]);
+    );
   }
 
-  List<TableRow> _buildRows() {
+  Widget _buildHeaderBox(String text) {
+    return Center(
+      child: Text(
+        text,
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 20.0,
+          color: Colors.white70,
+        ),
+      ),
+    );
+  }
+
+  List<TableRow> _buildRows(BuildContext context) {
     List<TableRow> rows = [];
-    _helloTable.forEach((String k, String v) => print("\(k) : \(v)"));
+
+    rows.add(
+        TableRow(
+      children: [
+        Container(
+          child: _buildHeaderBox("Country"),
+          height: 75.0,
+          color: Theme.of(context).primaryColorDark,
+        ),
+        Container(
+          child: _buildHeaderBox("Say \"Hello!\""),
+          height: 75.0,
+          color: Theme.of(context).primaryColorDark,
+        ),
+      ],
+    ));
+
+    _helloTable.forEach(
+      (String k, String v) {
+        print(k + " : " + v);
+        rows.add(
+          TableRow(
+            children: [
+              Container(
+                margin: EdgeInsets.all(10.0),
+                child: _buildTextBox(k),
+                height: 50.0,
+                color: Helper.generateRandomColor(),
+              ),
+              Container(
+                margin: EdgeInsets.all(10.0),
+                child: _buildTextBox(v),
+                height: 75.0,
+                color: Helper.generateRandomColor(),
+              ),
+            ],
+          ),
+        );
+      },
+    );
     return rows;
   }
 
@@ -72,10 +119,15 @@ class TablePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Row and Column"),
+        title: Text("Table Page"),
       ),
       body: Table(
-        children: _buildRows(),
+        defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+        border: TableBorder.all(
+          color: Helper.generateRandomColor(),
+          width: 1.5,
+        ),
+        children: _buildRows(context),
       ),
     );
   }

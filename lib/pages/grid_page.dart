@@ -25,7 +25,7 @@ class GridViewPage extends StatelessWidget {
             ),
             elevation: 1.5,
             margin: EdgeInsets.all(4.0),
-            color: Helper.generateRandomColor().withAlpha(40),
+            color: Helper.generateRandomColor().withAlpha(80),
           )
       );
     }
@@ -39,12 +39,11 @@ class GridViewPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("ListView builder"),
+        title: Text("Grid Page"),
       ),
       body: GridView.count (
-        padding: EdgeInsets.all(5.0),
         scrollDirection: Axis.horizontal,
-        crossAxisSpacing: 10.0,
+        crossAxisSpacing: 5.0,
         crossAxisCount: 4,
         children: _helloCardBuilder(_helloList),
       ),
