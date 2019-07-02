@@ -9,12 +9,9 @@ import 'pages/wrap_page.dart';
 import 'pages/listview_page.dart';
 import 'helper.dart';
 
-import 'pages/second_page.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  Helper helper;
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +29,11 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(title: 'Flutter Masters'),
       routes: {
         '/rowcolumn': (BuildContext context) => RowAndColumnPage(),
-        '/stack': (BuildContext context) => SecondPage(),
-        '/istack': (BuildContext context) => SecondPage(),
+        '/stack': (BuildContext context) => StackPage(),
+        '/istack': (BuildContext context) => IndexedStackPage(),
         '/grid': (BuildContext context) => GridViewPage(),
         '/table': (BuildContext context) => TablePage(),
-        '/flow': (BuildContext context) => SecondPage(),
+        '/flow': (BuildContext context) => FlowPage(),
         '/wrap': (BuildContext context) => WrapPage(),
         '/listview': (BuildContext context) => ListViewPage(),
       },
@@ -89,14 +86,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: Text("Stack"),
               onTap: () {
-                Navigator.pushNamed(context, "/second");
+                Navigator.pushNamed(context, "/stack");
               },
             ),
             Divider(),
             ListTile(
               title: Text("Indexed Stack"),
               onTap: () {
-                Navigator.pushNamed(context, "/second");
+                Navigator.pushNamed(context, "/istack");
               },
             ),
             Divider(),
@@ -110,14 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               title: Text("Table"),
               onTap: () {
-                Navigator.pushNamed(context, "/table", arguments: _helloList);
+                Navigator.pushNamed(context, "/table");
               },
             ),
             Divider(),
             ListTile(
               title: Text("Flow"),
               onTap: () {
-                Navigator.pushNamed(context, "/second", arguments: _helloList);
+                Navigator.pushNamed(context, "/flow", arguments: _helloList);
               },
             ),
             Divider(),
