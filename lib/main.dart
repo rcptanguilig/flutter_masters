@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'pages/row_and_column_page.dart';
 import 'pages/stack_page.dart';
 import 'pages/indexed_stack_page.dart';

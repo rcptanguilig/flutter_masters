@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_masters/helper.dart';
+import 'package:flutter_web/material.dart';
+import '../helper.dart';
 
 class RowAndColumnPage extends StatelessWidget {
   Widget _buildRows() {

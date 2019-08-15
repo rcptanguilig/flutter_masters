@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter_web/material.dart';
 import 'dart:math' as math;
 
 class SecondPage extends StatelessWidget {
